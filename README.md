@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@700&display=swap"
         rel="stylesheet">
-        
+
     <style>
         /* --- Global Resets & Font Definitions --- */
         :root {
@@ -620,7 +620,6 @@
 
 
 
-
     <!-- Main Content -->
     <main>
 
@@ -799,7 +798,7 @@
 
 
 
- <!-- JavaScript for Interactivity -->
+    <!-- JavaScript for Interactivity -->
     <script>
         // --- NEW: Quiz Data ---
         const quizData = [
@@ -857,42 +856,42 @@
 
         document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Mobile Menu ---
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-    });
+            // --- Mobile Menu ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
 
-    // --- Goal Setter ---
-    const taskForm = document.getElementById('task-form');
-    const taskInput = document.getElementById('task-input');
-    const taskList = document.getElementById('task-list');
-    const noTasksMsg = document.getElementById('no-tasks');
+            // --- Goal Setter ---
+            const taskForm = document.getElementById('task-form');
+            const taskInput = document.getElementById('task-input');
+            const taskList = document.getElementById('task-list');
+            const noTasksMsg = document.getElementById('no-tasks');
 
-    if (taskForm) {
-        taskForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const taskText = taskInput.value.trim();
+            if (taskForm) {
+                taskForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const taskText = taskInput.value.trim();
 
-            if (taskText !== '') {
-                addTask(taskText);
-                taskInput.value = '';
-                updateNoTasksMessage();
+                    if (taskText !== '') {
+                        addTask(taskText);
+                        taskInput.value = '';
+                        updateNoTasksMessage();
+                    }
+                });
             }
-        });
-    }
 
-    function addTask(text) {
-        const taskItem = document.createElement('div');
-        taskItem.className = 'task-item';
+            function addTask(text) {
+                const taskItem = document.createElement('div');
+                taskItem.className = 'task-item';
 
-        taskItem.innerHTML = `
+                taskItem.innerHTML = `
             <span>${text}</span>
             <div class="task-buttons">
                 <button class="complete-btn" title="Complete">
@@ -904,115 +903,115 @@
             </div>
         `;
 
-        taskItem.querySelector('.complete-btn').addEventListener('click', () => {
-            taskItem.classList.toggle('completed');
-        });
+                taskItem.querySelector('.complete-btn').addEventListener('click', () => {
+                    taskItem.classList.toggle('completed');
+                });
 
-        taskItem.querySelector('.delete-btn').addEventListener('click', () => {
-            taskItem.remove();
-            updateNoTasksMessage();
-        });
+                taskItem.querySelector('.delete-btn').addEventListener('click', () => {
+                    taskItem.remove();
+                    updateNoTasksMessage();
+                });
 
-        taskList.appendChild(taskItem);
-    }
-
-    function updateNoTasksMessage() {
-        if (noTasksMsg) {
-            if (taskList.children.length === 0) {
-                noTasksMsg.classList.remove('hidden');
-            } else {
-                noTasksMsg.classList.add('hidden');
+                taskList.appendChild(taskItem);
             }
-        }
-    }
 
-    if (taskList) {
-        updateNoTasksMessage();
-    }
+            function updateNoTasksMessage() {
+                if (noTasksMsg) {
+                    if (taskList.children.length === 0) {
+                        noTasksMsg.classList.remove('hidden');
+                    } else {
+                        noTasksMsg.classList.add('hidden');
+                    }
+                }
+            }
 
-    // --- IQ Test Logic ---
-    const startQuizBtn = document.getElementById('start-quiz-btn');
-    const quizStartScreen = document.getElementById('quiz-start-screen');
-    const quizContent = document.getElementById('quiz-content');
-    const quizResults = document.getElementById('quiz-results');
+            if (taskList) {
+                updateNoTasksMessage();
+            }
 
-    const questionText = document.getElementById('question-text');
-    const answerOptions = document.getElementById('answer-options');
-    const nextQuizBtn = document.getElementById('next-quiz-btn');
-    const quizScoreText = document.getElementById('quiz-score-text');
-    const restartQuizBtn = document.getElementById('restart-quiz-btn');
+            // --- IQ Test Logic ---
+            const startQuizBtn = document.getElementById('start-quiz-btn');
+            const quizStartScreen = document.getElementById('quiz-start-screen');
+            const quizContent = document.getElementById('quiz-content');
+            const quizResults = document.getElementById('quiz-results');
 
-    let currentQuestionIndex = 0;
-    let userAnswers = [];
+            const questionText = document.getElementById('question-text');
+            const answerOptions = document.getElementById('answer-options');
+            const nextQuizBtn = document.getElementById('next-quiz-btn');
+            const quizScoreText = document.getElementById('quiz-score-text');
+            const restartQuizBtn = document.getElementById('restart-quiz-btn');
 
-    function startQuiz() {
-        currentQuestionIndex = 0;
-        userAnswers = [];
-        quizStartScreen.classList.add('hidden');
-        quizResults.classList.add('hidden');
-        quizContent.classList.remove('hidden');
-        showQuestion(currentQuestionIndex);
-    }
+            let currentQuestionIndex = 0;
+            let userAnswers = [];
 
-    function showQuestion(index) {
-        const question = quizData[index];
-        questionText.innerText = question.question;
-        answerOptions.innerHTML = '';
+            function startQuiz() {
+                currentQuestionIndex = 0;
+                userAnswers = [];
+                quizStartScreen.classList.add('hidden');
+                quizResults.classList.add('hidden');
+                quizContent.classList.remove('hidden');
+                showQuestion(currentQuestionIndex);
+            }
 
-        question.options.forEach(option => {
-            const label = document.createElement('label');
-            label.className = 'answer-label';
-            label.innerHTML = `
+            function showQuestion(index) {
+                const question = quizData[index];
+                questionText.innerText = question.question;
+                answerOptions.innerHTML = '';
+
+                question.options.forEach(option => {
+                    const label = document.createElement('label');
+                    label.className = 'answer-label';
+                    label.innerHTML = `
                 <input type="radio" name="answer" value="${option}">
                 <span>${option}</span>
             `;
-            answerOptions.appendChild(label);
-        });
+                    answerOptions.appendChild(label);
+                });
 
-        nextQuizBtn.innerText = (currentQuestionIndex === quizData.length - 1)
-            ? 'Finish Quiz'
-            : 'Next Question';
-    }
-
-    function nextQuestion() {
-        const selectedOption = document.querySelector('input[name="answer"]:checked');
-        if (!selectedOption) return;
-
-        userAnswers.push(selectedOption.value);
-
-        if (currentQuestionIndex < quizData.length - 1) {
-            currentQuestionIndex++;
-            showQuestion(currentQuestionIndex);
-        } else {
-            showResults();
-        }
-    }
-
-    function showResults() {
-        quizContent.classList.add('hidden');
-        quizResults.classList.remove('hidden');
-
-        let score = 0;
-        for (let i = 0; i < quizData.length; i++) {
-            if (userAnswers[i] === quizData[i].answer) {
-                score++;
+                nextQuizBtn.innerText = (currentQuestionIndex === quizData.length - 1)
+                    ? 'Finish Quiz'
+                    : 'Next Question';
             }
-        }
 
-        quizScoreText.innerText = `You scored ${score} out of ${quizData.length}!`;
-    }
+            function nextQuestion() {
+                const selectedOption = document.querySelector('input[name="answer"]:checked');
+                if (!selectedOption) return;
 
-    function restartQuiz() {
-        quizResults.classList.add('hidden');
-        quizStartScreen.classList.remove('hidden');
-    }
+                userAnswers.push(selectedOption.value);
 
-    if (startQuizBtn) {
-        startQuizBtn.addEventListener('click', startQuiz);
-        nextQuizBtn.addEventListener('click', nextQuestion);
-        restartQuizBtn.addEventListener('click', restartQuiz);
-    }
-});
+                if (currentQuestionIndex < quizData.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion(currentQuestionIndex);
+                } else {
+                    showResults();
+                }
+            }
+
+            function showResults() {
+                quizContent.classList.add('hidden');
+                quizResults.classList.remove('hidden');
+
+                let score = 0;
+                for (let i = 0; i < quizData.length; i++) {
+                    if (userAnswers[i] === quizData[i].answer) {
+                        score++;
+                    }
+                }
+
+                quizScoreText.innerText = `You scored ${score} out of ${quizData.length}!`;
+            }
+
+            function restartQuiz() {
+                quizResults.classList.add('hidden');
+                quizStartScreen.classList.remove('hidden');
+            }
+
+            if (startQuizBtn) {
+                startQuizBtn.addEventListener('click', startQuiz);
+                nextQuizBtn.addEventListener('click', nextQuestion);
+                restartQuizBtn.addEventListener('click', restartQuiz);
+            }
+        });
         // --- Mental Health Check-in ---
         function handleCheckin(feeling) {
             const messageEl = document.getElementById('checkin-message');
@@ -1045,7 +1044,7 @@
 
     </script>
 
-   
+
 
 </body>
 
