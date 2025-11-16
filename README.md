@@ -1,5 +1,10 @@
 
-    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Gappa - Your Study Partner</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,8 +14,11 @@
       This <style> block contains all the "old-fashioned" CSS.
       This is the equivalent of a separate .css file.
     -->
+
     <style>
         /* --- Global Resets & Font Definitions --- */
+
+        
         :root {
             --brand-red: #FF4B2B;
             --brand-orange: #FF785A;
