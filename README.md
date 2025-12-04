@@ -1,4 +1,1052 @@
-<img width="1660" height="1072" alt="image" src="https://github.com/user-attachments/assets/883f4650-e938-4c66-b007-546050e71af6" />
-<img width="1302" height="1065" alt="image" src="https://github.com/user-attachments/assets/da9009c0-558f-49e8-b17d-7336dacd62cc" />
-<img width="1207" height="817" alt="image" src="https://github.com/user-attachments/assets/c06ebf61-2d28-43f0-bfd5-ed0972026316" />
-<img width="1272" height="803" alt="image" src="https://github.com/user-attachments/assets/1ad56221-b475-4936-9741-d04ca89fdd0b" />
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Gappa - Your Study Partner</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- Global Resets & Font Definitions --- */
+        :root {
+            --brand-red: #FF4B2B;
+            --brand-orange: #FF785A;
+            --brand-bg: #121212;
+            --brand-card: #1E1E1E;
+            --brand-border: #2a2a2a;
+            --text-primary: #E5E7EB;
+            /* gray-200 */
+            --text-secondary: #D1D5DB;
+            /* gray-300 */
+            --text-muted: #6B7280;
+            /* gray-500 */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--brand-bg);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            /* 48px */
+            font-weight: 700;
+            color: var(--brand-red);
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            /* 30px */
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            /* 24px */
+            font-weight: 700;
+            color: var(--brand-red);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Utility Class --- */
+        .hidden {
+            display: none;
+        }
+
+        /* --- Layout --- */
+        .section-container {
+            width: 100%;
+            max-width: 1152px;
+            /* 72rem */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4rem 1.5rem;
+            /* py-16 px-6 */
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(4px);
+            border-bottom: 1px solid var(--brand-border);
+        }
+
+        .navbar {
+            max-width: 1152px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            /* 24px */
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--brand-red);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: none;
+            /* Hidden on mobile */
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            /* 6px */
+            font-size: 0.875rem;
+            /* 14px */
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: var(--brand-red);
+            color: #FFFFFF;
+        }
+
+        #mobile-menu-btn {
+            display: block;
+            /* Show on mobile */
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            color: var(--text-secondary);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        #mobile-menu-btn:hover {
+            background-color: var(--brand-red);
+            color: #FFFFFF;
+        }
+
+        #mobile-menu-btn svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        #mobile-menu {
+            border-top: 1px solid var(--brand-border);
+        }
+
+        #mobile-menu .nav-link {
+            display: block;
+            text-align: center;
+        }
+
+        /* --- Components --- */
+        .card {
+            background-color: var(--brand-card);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            /* 12px */
+            border: 1px solid var(--brand-border);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn {
+            background-color: var(--brand-red);
+            color: #FFFFFF;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            /* 8px */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--brand-orange);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--brand-red);
+            color: var(--brand-red);
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--brand-red);
+            color: #FFFFFF;
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: var(--brand-bg);
+            border: 1px solid var(--brand-border);
+            color: var(--text-primary);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--brand-red);
+            box-shadow: 0 0 0 2px var(--brand-red);
+        }
+
+        /* --- Page Sections --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            /* 20px */
+            color: var(--text-secondary);
+            max-width: 672px;
+            /* 42rem */
+            margin-bottom: 2rem;
+        }
+
+        #goal-setter {
+            background-color: var(--brand-card);
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+        }
+
+        .goal-setter-content {
+            max-width: 896px;
+            /* 56rem */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #task-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        #task-input {
+            flex-grow: 1;
+        }
+
+        .task-list-container {
+            margin-bottom: 2rem;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--brand-bg);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--brand-border);
+            margin-bottom: 0.75rem;
+        }
+
+        .task-item span {
+            flex-grow: 1;
+            padding-right: 1rem;
+            word-break: break-word;
+        }
+
+        .task-item.completed span {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .task-item .task-buttons {
+            flex-shrink: 0;
+        }
+
+        .task-item button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .complete-btn {
+            color: #22C55E;
+            /* green-500 */
+            margin-right: 0.75rem;
+        }
+
+        .complete-btn:hover {
+            color: #4ADE80;
+        }
+
+        /* green-400 */
+
+        .delete-btn {
+            color: #EF4444;
+            /* red-500 */
+        }
+
+        .delete-btn:hover {
+            color: #F87171;
+        }
+
+        /* red-400 */
+
+        .complete-btn svg,
+        .delete-btn svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        #no-tasks {
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .checkin-card {
+            max-width: 896px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        #checkin-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #checkin-buttons .btn-outline {
+            width: 10rem;
+        }
+
+        #checkin-message {
+            font-size: 1.125rem;
+            /* 18px */
+            color: var(--brand-orange);
+            font-weight: 500;
+            height: 1.5rem;
+            /* for layout stability */
+        }
+
+        /* --- NEW: IQ Test Styles --- */
+        #iq-test {
+            background-color: var(--brand-card);
+        }
+
+        .quiz-container {
+            max-width: 896px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .quiz-start-screen p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            /* 20px */
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .answer-label {
+            display: block;
+            background-color: var(--brand-bg);
+            border: 1px solid var(--brand-border);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .answer-label:hover {
+            border-color: var(--brand-orange);
+        }
+
+        .answer-label input[type="radio"] {
+            display: none;
+            /* Hide the default radio button */
+        }
+
+        .answer-label input[type="radio"]:checked+span {
+            color: var(--brand-red);
+            font-weight: 700;
+        }
+
+        .answer-label span {
+            margin-left: 0.5rem;
+        }
+
+        #quiz-content {
+            text-align: left;
+        }
+
+        #next-quiz-btn {
+            display: block;
+            width: 100%;
+        }
+
+        .quiz-score-text {
+            font-size: 1.5rem;
+            /* 24px */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        #quiz-results p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- End of IQ Test Styles --- */
+
+        #features {
+            background-color: var(--brand-card);
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .features-grid .card {
+            background-color: var(--brand-bg);
+        }
+
+        .features-grid p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            border-top: 1px solid var(--brand-border);
+        }
+
+        .footer h4 {
+            font-size: 1.5rem;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--brand-red);
+            margin: 0 0 1rem 0;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* --- Responsive Media Queries --- */
+        @media (min-width: 768px) {
+
+            /* md breakpoint */
+            h1 {
+                font-size: 6rem;
+                /* 96px */
+            }
+
+            h2 {
+                font-size: 3rem;
+                /* 48px */
+            }
+
+            .section-container {
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+
+            #mobile-menu-btn {
+                display: none;
+            }
+
+            #mobile-menu {
+                display: none !important;
+                /* Ensure it's hidden on desktop */
+            }
+
+            #hero p {
+                font-size: 1.5rem;
+                /* 24px */
+            }
+
+            #task-form {
+                flex-direction: row;
+            }
+
+            #quiz-content {
+                text-align: center;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#hero" class="logo">GOAL GAPPA</a>
+            <div class="nav-links">
+                <a href="#goal-setter" class="nav-link">Goal Setter</a>
+                <a href="#check-in" class="nav-link">Check-In</a>
+                <a href="#iq-test" class="nav-link">IQ Test</a> <!-- NEW LINK -->
+                <a href="#features" class="nav-link">Features</a>
+            </div>
+            <button id="mobile-menu-btn">
+                <!-- Mobile Menu Icon (Hamburger) -->
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-8 6h8">
+                    </path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden">
+            <a href="#goal-setter" class="nav-link mobile-nav-link">Goal Setter</a>
+            <a href="#check-in" class="nav-link mobile-nav-link">Check-In</a>
+            <a href="#iq-test" class="nav-link mobile-nav-link">IQ Test</a> <!-- NEW LINK -->
+            <a href="#features" class="nav-link mobile-nav-link">Features</a>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero" class="section-container">
+            <h1>GOAL GAPPA</h1>
+            <p>
+                Stop procrastinating. Start achieving.
+                <br>
+                Gamify your studies and hit your targets.
+            </p>
+            <a href="#goal-setter" class="btn">Set Your First Goal</a>
+        </section>
+
+        <!-- Goal Setter Section (Interactive) -->
+        <section id="goal-setter" class="section-container">
+            <div class="goal-setter-content">
+                <h2>Your Goal Setter</h2>
+                <div class="card">
+                    <form id="task-form">
+                        <input type="text" id="task-input" class="form-input"
+                            placeholder="e.g., 'Finish Chapter 3 reading'">
+                        <button type="submit" class="btn">Add Goal</button>
+                    </form>
+                </div>
+
+                <!-- Task List -->
+                <div class="card task-list-container">
+                    <h3>Active Goals</h3>
+                    <div id="task-list">
+                        <!-- Tasks will be injected here by JS -->
+                    </div>
+                    <p id="no-tasks">You have no active goals. Add one above!</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Mental Health Check-in Section (Interactive) -->
+        <section id="check-in" class="section-container">
+            <div class="card checkin-card">
+                <h2>Mental Health Check-In</h2>
+                <h3>How are you feeling today?</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">A quick check-in helps us support you
+                    better.</p>
+
+                <div id="checkin-buttons">
+                    <button class="btn-outline" onclick="handleCheckin('Great')">Great! 😄</button>
+                    <button class="btn-outline" onclick="handleCheckin('Okay')">Just Okay 😐</button>
+                    <button class="btn-outline" onclick="handleCheckin('Stressed')">Stressed 😫</button>
+                    <button class="btn-outline" onclick="handleCheckin('Overwhelmed')">Overwhelmed 😥</button>
+                </div>
+
+                <div id="checkin-message">
+                    <!-- Message appears here -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- NEW: IQ Test Section -->
+        <section id="iq-test" class="section-container">
+            <h2>IQ Test</h2>
+            <div class="card quiz-container">
+                <!-- Start Screen -->
+                <div id="quiz-start-screen">
+                    <h3>10-Question Logic Quiz</h3>
+                    <p>Test your problem-solving skills. Click Start to begin.</p>
+                    <button class="btn" id="start-quiz-btn">Start Test</button>
+                </div>
+
+                <!-- Quiz Content (Hidden) -->
+                <div id="quiz-content" class="hidden">
+                    <div id="question-text" class="question-text"></div>
+                    <div id="answer-options" class="answer-options">
+                        <!-- Options injected by JS -->
+                    </div>
+                    <button class="btn" id="next-quiz-btn">Next</button>
+                </div>
+
+                <!-- Quiz Results (Hidden) -->
+                <div id="quiz-results" class="hidden">
+                    <h3>Quiz Complete!</h3>
+                    <p id="quiz-score-text" class="quiz-score-text"></p>
+                    <p>Based on this, we can suggest areas for you to focus on.</p>
+                    <button class="btn" id="restart-quiz-btn">Try Again</button>
+                </div>
+            </div>
+        </section>
+        <!-- End of IQ Test Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Other Features Section (Static) -->
+        <section id="features" class="section-container">
+            <h2>Core Features</h2>
+            <div class="features-grid">
+                <div class="card">
+                    <h3>Scoreboards</h3>
+                    <p>See how you stack up against friends. Friendly competition to keep you motivated.</p>
+                </div>
+                <div class="card">
+                    <h3>Reward System</h3>
+                    <p>Complete goals to earn points. Unlock badges and achievements for your hard work.</p>
+                </div>
+                <div class="card">
+                    <h3>Game Central</h3>
+                    <p>Take a break with quick, fun brain games designed to sharpen your mind.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h4>GOAL GAPPA</h4>
+        <p>ANISHA DUTTA | 2025</p>
+    </footer>
+
+
+
+
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // --- NEW: Quiz Data ---
+        const quizData = [
+            {
+                question: "Which number should come next in the series? 1, 4, 9, 16, __",
+                options: ["20", "25", "30", "36"],
+                answer: "25"
+            },
+            {
+                question: "Look at this series: 2, 1, (1/2), (1/4), __. What number should come next?",
+                options: ["(1/3)", "(1/8)", "(2/8)", "(1/16)"],
+                answer: "(1/8)"
+            },
+            {
+                question: "Which one of the five is least like the other four?",
+                options: ["Dog", "Mouse", "Lion", "Snake", "Elephant"],
+                answer: "Snake"
+            },
+            {
+                question: "If you rearrange the letters 'CIFAIPC' you would have the name of a(n):",
+                options: ["City", "Animal", "Ocean", "River"],
+                answer: "Ocean"
+            },
+            {
+                question: "What is the missing number in the sequence? 4, 8, 12, __, 20, 24",
+                options: ["14", "16", "18", "19"],
+                answer: "16"
+            },
+            {
+                question: "A is the father of B. But B is not A's son. What is the relation of B to A?",
+                options: ["Niece", "Daughter", "Wife", "Sister"],
+                answer: "Daughter"
+            },
+            {
+                question: "Which word does not belong with the others?",
+                options: ["Book", "Index", "Chapter", "Glossary"],
+                answer: "Book"
+            },
+            {
+                question: "A man builds a house with four sides, all with a southern exposure. A big bear walks by. What color is the bear?",
+                options: ["White", "Black", "Brown", "No one knows"],
+                answer: "White"
+            },
+            {
+                question: "What is 40 divided by 1/2, plus 15?",
+                options: ["35", "55", "80", "95"],
+                answer: "95"
+            },
+            {
+                question: "Which shape comes next in the sequence? Triangle (3), Square (4), Pentagon (5), __",
+                options: ["Circle (0)", "Heptagon (7)", "Hexagon (6)", "Octagon (8)"],
+                answer: "Hexagon (6)"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Mobile Menu ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Goal Setter ---
+            const taskForm = document.getElementById('task-form');
+            const taskInput = document.getElementById('task-input');
+            const taskList = document.getElementById('task-list');
+            const noTasksMsg = document.getElementById('no-tasks');
+
+            if (taskForm) {
+                taskForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const taskText = taskInput.value.trim();
+
+                    if (taskText !== '') {
+                        addTask(taskText);
+                        taskInput.value = '';
+                        updateNoTasksMessage();
+                    }
+                });
+            }
+
+            function addTask(text) {
+                const taskItem = document.createElement('div');
+                taskItem.className = 'task-item';
+
+                taskItem.innerHTML = `
+            <span>${text}</span>
+            <div class="task-buttons">
+                <button class="complete-btn" title="Complete">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </button>
+                <button class="delete-btn" title="Delete">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                </button>
+            </div>
+        `;
+
+                taskItem.querySelector('.complete-btn').addEventListener('click', () => {
+                    taskItem.classList.toggle('completed');
+                });
+
+                taskItem.querySelector('.delete-btn').addEventListener('click', () => {
+                    taskItem.remove();
+                    updateNoTasksMessage();
+                });
+
+                taskList.appendChild(taskItem);
+            }
+
+            function updateNoTasksMessage() {
+                if (noTasksMsg) {
+                    if (taskList.children.length === 0) {
+                        noTasksMsg.classList.remove('hidden');
+                    } else {
+                        noTasksMsg.classList.add('hidden');
+                    }
+                }
+            }
+
+            if (taskList) {
+                updateNoTasksMessage();
+            }
+
+            // --- IQ Test Logic ---
+            const startQuizBtn = document.getElementById('start-quiz-btn');
+            const quizStartScreen = document.getElementById('quiz-start-screen');
+            const quizContent = document.getElementById('quiz-content');
+            const quizResults = document.getElementById('quiz-results');
+
+            const questionText = document.getElementById('question-text');
+            const answerOptions = document.getElementById('answer-options');
+            const nextQuizBtn = document.getElementById('next-quiz-btn');
+            const quizScoreText = document.getElementById('quiz-score-text');
+            const restartQuizBtn = document.getElementById('restart-quiz-btn');
+
+            let currentQuestionIndex = 0;
+            let userAnswers = [];
+
+            function startQuiz() {
+                currentQuestionIndex = 0;
+                userAnswers = [];
+                quizStartScreen.classList.add('hidden');
+                quizResults.classList.add('hidden');
+                quizContent.classList.remove('hidden');
+                showQuestion(currentQuestionIndex);
+            }
+
+            function showQuestion(index) {
+                const question = quizData[index];
+                questionText.innerText = question.question;
+                answerOptions.innerHTML = '';
+
+                question.options.forEach(option => {
+                    const label = document.createElement('label');
+                    label.className = 'answer-label';
+                    label.innerHTML = `
+                <input type="radio" name="answer" value="${option}">
+                <span>${option}</span>
+            `;
+                    answerOptions.appendChild(label);
+                });
+
+                nextQuizBtn.innerText = (currentQuestionIndex === quizData.length - 1)
+                    ? 'Finish Quiz'
+                    : 'Next Question';
+            }
+
+            function nextQuestion() {
+                const selectedOption = document.querySelector('input[name="answer"]:checked');
+                if (!selectedOption) return;
+
+                userAnswers.push(selectedOption.value);
+
+                if (currentQuestionIndex < quizData.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion(currentQuestionIndex);
+                } else {
+                    showResults();
+                }
+            }
+
+            function showResults() {
+                quizContent.classList.add('hidden');
+                quizResults.classList.remove('hidden');
+
+                let score = 0;
+                for (let i = 0; i < quizData.length; i++) {
+                    if (userAnswers[i] === quizData[i].answer) {
+                        score++;
+                    }
+                }
+
+                quizScoreText.innerText = `You scored ${score} out of ${quizData.length}!`;
+            }
+
+            function restartQuiz() {
+                quizResults.classList.add('hidden');
+                quizStartScreen.classList.remove('hidden');
+            }
+
+            if (startQuizBtn) {
+                startQuizBtn.addEventListener('click', startQuiz);
+                nextQuizBtn.addEventListener('click', nextQuestion);
+                restartQuizBtn.addEventListener('click', restartQuiz);
+            }
+        });
+        // --- Mental Health Check-in ---
+        function handleCheckin(feeling) {
+            const messageEl = document.getElementById('checkin-message');
+            if (!messageEl) return; // Guard clause
+
+            let message = '';
+
+            switch (feeling) {
+                case 'Great':
+                    message = "Awesome! Keep up the positive energy!";
+                    break;
+                case 'Okay':
+                    message = "That's alright. A steady pace wins the race.";
+                    break;
+                case 'Stressed':
+                    message = "Take a deep breath. Try a 5-min break.";
+                    break;
+                case 'Overwhelmed':
+                    message = "It's okay to feel this way. Focus on one small task.";
+                    break;
+            }
+
+            messageEl.textContent = message;
+
+            // Hide the message after 3 seconds
+            setTimeout(() => {
+                messageEl.textContent = '';
+            }, 3000);
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
+
